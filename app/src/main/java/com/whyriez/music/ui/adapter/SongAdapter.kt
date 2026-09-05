@@ -71,9 +71,12 @@ class SongAdapter(
             } else {
                 binding.spectrumView.stopSimulation()
                 binding.spectrumView.visibility = View.GONE
-                binding.titleSong.setTextColor(
-                    ContextCompat.getColor(binding.root.context, android.R.color.black)
+
+                val defaultColor = com.google.android.material.color.MaterialColors.getColor(
+                    binding.root,
+                    com.google.android.material.R.attr.colorOnSurface
                 )
+                binding.titleSong.setTextColor(defaultColor)
             }
 
             binding.root.setOnClickListener {

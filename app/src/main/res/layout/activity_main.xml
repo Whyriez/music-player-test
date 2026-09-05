@@ -10,7 +10,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:padding="16dp">
 
         <com.google.android.material.textfield.TextInputLayout
@@ -31,7 +31,7 @@
                 android:id="@+id/etSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Cari lagu, artis, atau album..."
+                android:hint="@string/search_hint_initial"
                 android:imeOptions="actionSearch"
                 android:inputType="text"
                 android:paddingVertical="12dp" />
@@ -99,14 +99,14 @@
             android:text="Ketik judul lagu untuk memulai pencarian"
             android:textColor="?android:attr/textColorSecondary"
             android:textSize="14sp"
-            android:visibility="gone" />
+            android:visibility="visible" />
     </RelativeLayout>
 
     <include
+        android:id="@+id/musicPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         layout="@layout/music_player"
-        android:id="@+id/musicPlayer"
         android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

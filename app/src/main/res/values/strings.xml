@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Music</string>
+    <string name="app_name">Music Player</string>
+    <string name="no_songs_found">Lagu tidak ditemukan. Coba kata kunci lain.</string>
+    <string name="search_hint_initial">Ketik judul lagu atau nama artis untuk mencari musik.</string>
+    <string name="player_idle_title">Tidak ada lagu diputar</string>
+    <string name="player_idle_artist">-</string>
 </resources>

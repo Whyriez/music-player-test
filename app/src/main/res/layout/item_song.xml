@@ -30,6 +30,7 @@
             android:maxLines="1"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:textColor="?android:attr/textColorSecondary"
             android:text="Song name"/>
 
         <TextView
@@ -37,6 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
+            android:textColor="?android:attr/textColorSecondary"
             android:text="Artist"/>
 
         <TextView
@@ -44,6 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
+            android:textColor="?android:attr/textColorSecondary"
             android:text="Album"/>
 
     </LinearLayout>

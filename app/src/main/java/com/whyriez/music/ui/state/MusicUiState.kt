@@ -1,4 +1,4 @@
-package com.whyriez.music.ui.viewmodel
+package com.whyriez.music.ui.state
 
 import com.whyriez.music.domain.model.Song
 

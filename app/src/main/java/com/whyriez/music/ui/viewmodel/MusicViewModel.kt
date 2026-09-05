@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.whyriez.music.domain.model.Song
 import com.whyriez.music.domain.repository.MusicRepository
 import com.whyriez.music.player.MusicPlayerManager
+import com.whyriez.music.ui.state.MusicUiState
 import com.whyriez.music.utils.Resource
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
