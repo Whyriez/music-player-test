@@ -3,7 +3,11 @@
     <style name="Base.Theme.Music" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
     </style>
+
+    <color name="bg_player_glass">#F2FFFFFF</color>
+    <color name="border_player_glass">#1F000000</color>
 
     <style name="Theme.Music" parent="Base.Theme.Music" />
 </resources>

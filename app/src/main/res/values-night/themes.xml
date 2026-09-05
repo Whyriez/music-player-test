@@ -3,5 +3,9 @@
     <style name="Base.Theme.Music" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+
     </style>
+
+    <color name="bg_player_glass">#CC1E1E1E</color>
+    <color name="border_player_glass">#33FFFFFF</color>
 </resources>
