@@ -1,17 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/musicPlayer"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/musicPlayerRoot"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
     android:background="@drawable/bg_glass_player"
-    android:padding="16dp">
+    android:elevation="8dp"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="12dp"
+    android:paddingBottom="16dp">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPlayerCurrentTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Pilih lagu untuk memutar"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Blinding Lights" />
+
+            <TextView
+                android:id="@+id/tvPlayerCurrentArtist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="12sp"
+                tools:text="The Weeknd" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/seekBarMusic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:splitTrack="false" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvCurrentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="00:00"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/tvTotalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="00:30"
+            android:textSize="11sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
         android:orientation="horizontal">
 
         <ImageButton
@@ -29,7 +98,7 @@
             android:layout_marginHorizontal="32dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Play/Pause"
-            android:src="@android:drawable/ic_media_pause" />
+            android:src="@android:drawable/ic_media_play" />
 
         <ImageButton
             android:id="@+id/btnNext"
@@ -38,16 +107,6 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Next"
             android:src="@android:drawable/ic_media_next" />
-
     </LinearLayout>
-
-    <SeekBar
-        android:id="@+id/seekBarMusic"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:splitTrack="false" />
 
 </LinearLayout>
