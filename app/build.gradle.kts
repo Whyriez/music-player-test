@@ -55,9 +55,8 @@ dependencies {
 
     // Image Loading
     implementation("com.github.bumptech.glide:glide:5.0.9")
-//
-//    // Lifecycle & ViewModel KTX
-//    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4")
-//    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
-//    implementation("androidx.activity:activity-ktx:1.9.1")
+
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.11.0")
+    testImplementation("io.mockk:mockk:1.14.11")
+    testImplementation("app.cash.turbine:turbine:1.2.1")
 }
