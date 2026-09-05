@@ -97,8 +97,8 @@ Test coverage includes:
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME>.git
-   cd <YOUR_REPOSITORY_NAME>
+   git clone https://github.com/whyriez/music-player-test.git
+   cd music-player-test
    ```
 2. Build the debug APK:
    ```bash
