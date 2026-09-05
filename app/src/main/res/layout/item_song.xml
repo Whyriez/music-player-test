@@ -2,18 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_horizontal"
     android:clickable="true"
     android:focusable="true"
     android:orientation="horizontal"
     android:padding="16dp">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imgSong"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_android_black_24dp"
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Small"
         />
 
     <LinearLayout

@@ -2,6 +2,7 @@ package com.whyriez.music.ui
 
 import android.content.Context
 import android.os.Bundle
+import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.SeekBar
@@ -17,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.whyriez.music.R
 import com.whyriez.music.data.remote.NetworkClient
 import com.whyriez.music.data.repository.MusicRepositoryImpl
@@ -111,6 +113,10 @@ class MainActivity : AppCompatActivity() {
                 viewModel.playerManager.playPrevious()
             }
 
+            btnClosePlayer.setOnClickListener {
+                viewModel.playerManager.stopPlayback()
+            }
+
             seekBarMusic.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                     if (fromUser) {
@@ -203,19 +209,22 @@ class MainActivity : AppCompatActivity() {
     private fun updatePlayerInfo(song: Song?) {
         binding.musicPlayer.apply {
             if (song != null) {
+                root.visibility = View.VISIBLE
                 tvPlayerCurrentTitle.text = song.trackName
                 tvPlayerCurrentArtist.text = song.artistName
+
+                Glide.with(imgPlayerArtwork)
+                    .load(song.artworkUrl)
+                    .placeholder(R.drawable.ic_android_black_24dp)
+                    .error(R.drawable.ic_android_black_24dp)
+                    .into(imgPlayerArtwork)
+
                 btnPlayPause.isEnabled = true
                 btnNext.isEnabled = true
                 btnPrevious.isEnabled = true
                 seekBarMusic.isEnabled = true
             } else {
-                tvPlayerCurrentTitle.text = getString(R.string.player_idle_title)
-                tvPlayerCurrentArtist.text = getString(R.string.player_idle_artist)
-                btnPlayPause.isEnabled = false
-                btnNext.isEnabled = false
-                btnPrevious.isEnabled = false
-                seekBarMusic.isEnabled = false
+                root.visibility = View.GONE
             }
         }
     }

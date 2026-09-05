@@ -99,6 +99,16 @@ class MusicPlayerManager(context: Context) {
         }
     }
 
+    fun stopPlayback() {
+        stopProgressTracker()
+        exoPlayer.stop()
+        exoPlayer.clearMediaItems()
+        _currentSong.value = null
+        _isPlaying.value = false
+        _currentPosition.value = 0L
+        _duration.value = 0L
+    }
+
     fun seekTo(positionMs: Long) {
         exoPlayer.seekTo(positionMs)
         _currentPosition.value = positionMs
