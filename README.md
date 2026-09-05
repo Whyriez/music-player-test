@@ -31,7 +31,6 @@ The project strictly follows **Clean Architecture** and the **MVVM (Model-View-V
 ```text
 com.whyriez.music/
 ├── data/
-│   ├── model/               # DTOs & API Response mappers (toDomain)
 │   ├── remote/              # Retrofit API Service & Network Client
 │   └── repository/          # MusicRepository implementation (with error dispatching)
 ├── domain/
@@ -41,6 +40,7 @@ com.whyriez.music/
 │   └── MusicPlayerManager.kt# Standalone audio engine wrapping AndroidX Media3
 ├── ui/
 │   ├── adapter/             # ListAdapter with DiffUtil & ViewHolder lifecycle handling
+│   ├── state/               # List State classes (Idle, Loading, Success, Empty, Error)
 │   ├── viewmodel/           # MusicViewModel managing UI states & coroutine flows
 │   └── MainActivity.kt      # Activity binding, state collection, & user interaction
 └── utils/
