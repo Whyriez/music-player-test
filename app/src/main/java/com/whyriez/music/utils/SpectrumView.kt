@@ -25,7 +25,10 @@ class SpectrumView @JvmOverloads constructor(
     }
     private var animator: ValueAnimator? = null
 
+    private var isSimulating = false
+
     fun updateVisualizer(fft: ByteArray) {
+        if (fft.size < barCount * 2) return
         for (i in 0 until barCount) {
             val r = fft[2 * i].toFloat()
             val im = fft[2 * i + 1].toFloat()
@@ -35,7 +38,17 @@ class SpectrumView @JvmOverloads constructor(
     }
 
     fun startSimulation() {
-        if (animator?.isRunning == true) return
+        isSimulating = true
+        startInternalAnimator()
+    }
+
+    fun stopSimulation() {
+        isSimulating = false
+        stopInternalAnimator()
+    }
+
+    private fun startInternalAnimator() {
+        if (animator?.isRunning == true || visibility != VISIBLE) return
         animator = ValueAnimator.ofFloat(0f, 1f).apply {
             duration = 150
             repeatCount = ValueAnimator.INFINITE
@@ -50,7 +63,7 @@ class SpectrumView @JvmOverloads constructor(
         }
     }
 
-    fun stopSimulation() {
+    private fun stopInternalAnimator() {
         animator?.cancel()
         animator = null
         for (i in 0 until barCount) {
@@ -59,11 +72,33 @@ class SpectrumView @JvmOverloads constructor(
         invalidate()
     }
 
+    override fun onAttachedToWindow() {
+        super.onAttachedToWindow()
+        if (isSimulating) {
+            startInternalAnimator()
+        }
+    }
+
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        stopInternalAnimator()
+    }
+
+    override fun onVisibilityChanged(changedView: View, visibility: Int) {
+        super.onVisibilityChanged(changedView, visibility)
+        if (visibility == VISIBLE) {
+            if (isSimulating) startInternalAnimator()
+        } else {
+            stopInternalAnimator()
+        }
+    }
+
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         if (width == 0 || height == 0) return
 
-        val barWidth = width.toFloat() / (barCount * 2 - 1)
+        val totalBarRatio = barCount * 2 - 1
+        val barWidth = width.toFloat() / totalBarRatio
         val maxHeight = height.toFloat()
 
         for (i in 0 until barCount) {
@@ -72,12 +107,7 @@ class SpectrumView @JvmOverloads constructor(
             val barHeight = ((magnitudes[i] / 50f) * maxHeight).coerceIn(4f, maxHeight)
             val top = maxHeight - barHeight
 
-            canvas.drawRoundRect(left, top, right, maxHeight, 8f, 8f, paint)
+            canvas.drawRoundRect(left, top, right, maxHeight, 6f, 6f, paint)
         }
-    }
-
-    override fun onDetachedFromWindow() {
-        super.onDetachedFromWindow()
-        stopSimulation()
     }
 }
