@@ -27,16 +27,6 @@ class SpectrumView @JvmOverloads constructor(
 
     private var isSimulating = false
 
-    fun updateVisualizer(fft: ByteArray) {
-        if (fft.size < barCount * 2) return
-        for (i in 0 until barCount) {
-            val r = fft[2 * i].toFloat()
-            val im = fft[2 * i + 1].toFloat()
-            magnitudes[i] = hypot(r.toDouble(), im.toDouble()).toFloat()
-        }
-        invalidate()
-    }
-
     fun startSimulation() {
         isSimulating = true
         startInternalAnimator()
