@@ -1,6 +1,6 @@
 # Music Player Application
 
-[![Android CI/CD](https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME>/actions/workflows/android_ci.yml/badge.svg)](https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME>/actions/workflows/android_ci.yml)
+[![Android CI/CD](https://github.com/<YOUR_GITHUB_USERNAME>/<YOUR_REPOSITORY_NAME>/actions/workflows/android_ci.yml/badge.svg)](https://github.com/whyriez/music-player-test/actions/workflows/android_ci.yml)
 ![Platform](https://img.shields.io/badge/Platform-Android-green.svg)
 ![Kotlin](https://img.shields.io/badge/Kotlin-1.9+-blue.svg)
 ![Min SDK](https://img.shields.io/badge/Min%20SDK-24-orange.svg)
