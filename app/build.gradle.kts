@@ -25,6 +25,10 @@ android {
             }
         }
     }
+
+    buildFeatures{
+        viewBinding = true
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -45,4 +49,15 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:3.0.0")
     implementation("com.squareup.retrofit2:converter-gson:3.0.0")
     implementation("com.squareup.okhttp3:logging-interceptor:5.5.0")
+
+    // AndroidX Media3 (ExoPlayer)
+    implementation("androidx.media3:media3-exoplayer:1.4.1")
+
+    // Image Loading
+    implementation("com.github.bumptech.glide:glide:5.0.9")
+//
+//    // Lifecycle & ViewModel KTX
+//    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.4")
+//    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
+//    implementation("androidx.activity:activity-ktx:1.9.1")
 }

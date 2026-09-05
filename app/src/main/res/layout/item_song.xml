@@ -26,6 +26,8 @@
             android:id="@+id/titleSong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textSize="16sp"
             android:textStyle="bold"
             android:text="Song name"/>
@@ -48,8 +50,8 @@
 
     <com.whyriez.music.utils.SpectrumView
         android:id="@+id/spectrumView"
-        android:layout_width="32dp"
-        android:layout_height="24dp"
-        android:layout_gravity="center_vertical" />
+        android:layout_width="28dp"
+        android:layout_height="20dp"
+        android:visibility="gone" />
 
 </LinearLayout>
